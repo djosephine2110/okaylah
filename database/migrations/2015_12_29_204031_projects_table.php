@@ -28,7 +28,7 @@ class ProjectsTable extends Migration
             $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
             $table->integer('invoice_id')->unsigned()->nullable();
             $table->foreign('invoice_id')->references('id')->on('invoices');
-            $table->date('deadline');
+            $table->datetime('deadline');
             $table->softDeletes();
             $table->timestamps();
         });

@@ -30,7 +30,7 @@ class TasksTable extends Migration
             $table->foreign('invoice_id')->references('id')->on('invoices');
             $table->integer('project_id')->unsigned()->nullable();
             $table->foreign('project_id')->references('id')->on('projects');
-            $table->date('deadline');
+            $table->datetime('deadline');
             $table->softDeletes();
             $table->timestamps();
         });

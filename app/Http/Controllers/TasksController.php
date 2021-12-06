@@ -339,7 +339,7 @@ class TasksController extends Controller
             return redirect()->route('tasks.show', $external_id);
         }
         $task = $this->findByExternalId($external_id);
-        $task->fill(['deadline' => Carbon::parse($request->deadline_date)])->save();
+        $task->fill(['deadline' => Carbon::parse($request->deadline)])->save();
 
         event(new \App\Events\TaskAction($task, self::UPDATED_DEADLINE));
         Session()->flash('flash_message', 'New deadline is set');
